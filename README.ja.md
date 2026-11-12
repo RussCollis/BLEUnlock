@@ -1,5 +1,7 @@
 # BLEUnlock
 
+[![Buy me a coffee](https://img.buymeacoffee.com/button-api/?text=Buy%20me%20a%20coffee&emoji=&slug=russcollis&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff)](https://www.buymeacoffee.com/russcollis)
+
 ![CI](https://github.com/ts1/BLEUnlock/workflows/CI/badge.svg)
 ![Github All Releases](https://img.shields.io/github/downloads/ts1/BLEUnlock/total.svg)
 [![Buy me a coffee](img/buymeacoffee.svg)](https://www.buymeacoffee.com/tsone)

@@ -1,5 +1,7 @@
 # BLEUnlock
 
+[![Buy me a coffee](https://img.buymeacoffee.com/button-api/?text=Buy%20me%20a%20coffee&emoji=&slug=russcollis&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff)](https://www.buymeacoffee.com/russcollis)
+
 ## 請注意：本應用程式未在 Mac App Store 發布，你可以在這裡免費取得！
 
 ![CI](https://github.com/ts1/BLEUnlock/workflows/CI/badge.svg)
