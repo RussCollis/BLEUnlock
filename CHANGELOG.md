@@ -2,7 +2,7 @@
 
 All notable changes to this fork of [BLEUnlock](https://github.com/ts1/BLEUnlock) are documented here.
 
-## [Unreleased] — 2026-11-12
+## [1.13.0] — 2026-11-12
 
 ### Added
 
