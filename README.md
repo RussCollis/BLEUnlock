@@ -10,6 +10,8 @@ BLEUnlock is a small menu bar utility that locks and unlocks your Mac by proximi
 
 This document is also available in [Japanese (日本語版はこちら)](README.ja.md) and [Traditional Chinese (繁體中文版)](README_CHT.md).
 
+See the [Changelog](CHANGELOG.md) for recent changes.
+
 ## Features
 
 - No iPhone app is required
@@ -20,11 +22,12 @@ This document is also available in [Japanese (日本語版はこちら)](README.
 - Optionally wakes from display sleep
 - Optionally pauses and unpauses music/video playback when you're away and back
 - Password is securely stored in Keychain
+- Ignores single RSSI spikes: unlocking requires a sustained, smoothed signal
 
 ## Requirements
 
 - A Mac with Bluetooth Low Energy support
-- macOS 10.13 (High Sierra) or later
+- macOS 12 (Monterey) or later
 - iPhone 5s or newer, Apple Watch (all), or another BLE device that has [static MAC address](#notes-on-mac-address) and transmits signal periodically
 
 ## Installation
@@ -74,9 +77,24 @@ Pause "Now Playing" while Locked | On lock/unlock, BLEUnlock pauses/unpauses pla
 Use Screensaver to Lock | If this option is set, BLEUnlock launches screensaver instead of locking. For this option to work properly, you need to set *Require password **immediately** after sleep or screen saver begins* option in *Security & Privacy* preference pane.
 Turn Off Screen on Lock | Turn off the display immediately when locking.
 Set Password... | If you changed your login password, use this.
+Use Platform SSO Lock Screen | Off by default. Enable only on Macs whose native lock screen is provided by Apple's Platform SSO agent and accepts your ordinary Mac login password. See [Unlocking on recent macOS versions](docs/macos-unlock.md#optional-platform-sso-lock-screen).
 Passive Mode | By default it actively tries to connect to the BLE device and read the RSSI. Most of the time, the default is recommended and works stably. However, if you are using other Bluetooth things like keyboard, mouse, track pad or most notably Bluetooth Personal Hotspot, the default mode may interfere with each other. 2.4GHz WiFi may interfere as well. If you are experiencing instability of Bluetooth, turn on Passive Mode.
 Launch at Login | Launches BLEUnlock when you login.
 Set Minimum RSSI | Devices with RSSI below this value will not be displayed in the device scan list.
+
+## Running the tests
+
+Lock-state, keyboard and unlock-target regression tests (run in a logged-in GUI session):
+
+```
+tools/test-macos27.zsh
+```
+
+RSSI smoothing and unlock-gate tests:
+
+```
+xcrun swiftc BLEUnlock/RSSIDecision.swift Tests/RSSIDecisionTests/main.swift -o /tmp/rssi-tests && /tmp/rssi-tests
+```
 
 ## Troubleshooting
 
@@ -223,6 +241,14 @@ If you like this app, I'd appreciate it if you could make a donation via [Buy Me
 - [alonewolfx2](https://github.com/alonewolfx2): Turkish localization
 - [wernjie](https://github.com/wernjie): Wake without Unlocking
 - [tokfrans03](https://github.com/tokfrans03): Language fixes
+- [finemax](https://github.com/finemax): macOS 27 unlock support and Platform SSO lock screen
+- [shencangsheng](https://github.com/shencangsheng): Duplicate device name fix
+- Daniel Szasz: Hebrew and Romanian translations
+- Michaël Fortin: French localization
+- Håvard Pedersen: Norwegian translation improvements
+- [Eroyi](https://github.com/Eroyi): Simplified Chinese translation proofreading
+- [fred-lede](https://github.com/fred-lede): Traditional Chinese README
+- [LetMeFly666](https://github.com/LetMeFly666): Device-name parser fix
 
 
 Icons are based on SVGs downloaded from materialdesignicons.com.
