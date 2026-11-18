@@ -32,18 +32,6 @@ See the [Changelog](CHANGELOG.md) for recent changes.
 - macOS 12 (Monterey) or later
 - iPhone 5s or newer, Apple Watch (all), or another BLE device that has [static MAC address](#notes-on-mac-address) and transmits signal periodically
 
-## Installation
-
-### Using Homebrew Cask
-
-```
-brew install bleunlock
-```
-
-### Manual installation
-
-Download the zip file from [Releases](https://github.com/ts1/BLEUnlock/releases), unzip and move to the Applications folder.
-
 ## Setting up
 
 On the first launch, it asks for the following permissions, which you must grant:
